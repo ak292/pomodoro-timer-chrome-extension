@@ -1,0 +1,1 @@
+- A pomodoro timer Chrome Extension made with pure JavaScript (no frameworks) for educational purposes
