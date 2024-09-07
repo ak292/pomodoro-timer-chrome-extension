@@ -4,12 +4,12 @@ let tasks = [];
 background service worker, here we just grab
 the value and make use of it for popup */
 function updateTime() {
-  chrome.storage.local.get(["timer"], (res) => {
+  chrome.storage.local.get(["timer", "timeOption"], (res) => {
     const time = document.getElementById("time");
-    const minutes = `${25 - Math.ceil(res.timer / 60)}`.padStart(2, "0");
+    const minutes = `${res.timeOption - Math.ceil(res.timer / 60)}`.padStart(2, "0");
     let seconds = "00";
     if (res.timer % 60 != 0) {
-      seconds = 60 - (res.timer % 60);
+      seconds = `${60 - (res.timer % 60)}`.padStart(2, "0");
     }
     time.textContent = `${minutes}:${seconds}`;
   });
@@ -79,6 +79,7 @@ function addTask(value = "", taskNum = tasks.length) {
   text.type = "text";
   text.placeholder = "Enter a task...";
   text.value = value;
+  text.className = "task-input";
   text.addEventListener("change", () => {
     tasks[taskNum] = text.value;
     saveTasks();
@@ -89,6 +90,7 @@ function addTask(value = "", taskNum = tasks.length) {
   const deleteBtn = document.createElement("input");
   deleteBtn.type = "button";
   deleteBtn.value = "X";
+  deleteBtn.className = "task-delete";
   deleteBtn.addEventListener("click", () => {
     const currentIndex = tasks.indexOf(text.value);
     if (currentIndex !== -1) {
