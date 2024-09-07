@@ -2,7 +2,7 @@
 
 A pomodoro timer Chrome Extension made with pure JavaScript (no frameworks) for educational purposes. It is meant to be a useful tool for studying/working as it allows you to set a timer (default 25 minutes) and add/delete tasks that you need to complete. When the timer reaches 0, you'll be notified.
 
-Makes use of many Chrome extension APIs including the Alarm API, Storage API, Notification API, as well as background service workers. Also has a simple options page to customize the amount of time for the timer countdown.
+Makes use of many Chrome extension APIs including **the Alarm API, Storage API, Notifications API, as well as background service workers (to keep timer running in background constantly)**. Also has a simple options page to customize the amount of time for the timer countdown.
 
 ![GIF of Pomodoro Extension](https://imgur.com/nKTx1J8.gif)
 
